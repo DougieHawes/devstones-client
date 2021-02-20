@@ -1,2 +1,49 @@
-.active-link {
+@import "../variables.scss";
+
+.layout {
+  .menu {
+    background-color: $colour3;
+    border-bottom: 2px solid $colour4;
+    color: $colour2;
+    display: grid;
+    grid-template-columns: 160px auto;
+    height: 42px;
+    padding: $menu-padding;
+    .title-box {
+    }
+    .links-box {
+      text-align: right;
+      .link {
+        margin-left: 12px;
+      }
+      .active-link {
+        color: $colour4;
+        font-weight: 600;
+      }
+    }
+  }
+  .layout-body {
+    max-height: calc(100vh - 42px);
+    min-height: calc(100vh - 42px);
+    overflow-y: scroll;
+    .jumbotron {
+      background-position: center;
+      border-bottom: 2px solid $colour4;
+      height: 210px;
+      padding: $jumbotron-padding;
+      .jumbotron-title {
+        font-size: 70px;
+        text-transform: capitalize;
+      }
+      .jumbotron-description {
+        font-size: 21px;
+        margin-top: -14px;
+      }
+    }
+    .children {
+      background-color: $colour2;
+      min-height: 100vh;
+      padding: $children-padding;
+    }
+  }
 }

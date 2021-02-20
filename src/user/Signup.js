@@ -1,7 +1,11 @@
 import Layout from "../core/Layout";
 
 const Signup = () => {
-  return <Layout title="signup" description="please register" />;
+  const children = <div className="children">SIGNUP</div>;
+
+  return (
+    <Layout title="signup" description="please register" children={children} />
+  );
 };
 
 export default Signup;

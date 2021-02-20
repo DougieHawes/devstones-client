@@ -1,13 +1,13 @@
 import Layout from "./Layout";
 
-import { API } from "../config";
-
 const Home = () => {
+  const children = <div className="children">CHILDREN</div>;
+
   return (
     <Layout
       title="devstones"
       description="online bookstore for developers and programmers"
-      children={API}
+      children={children}
     />
   );
 };
