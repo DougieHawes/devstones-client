@@ -2,14 +2,14 @@ import { useState } from "react";
 
 import { Redirect } from "react-router-dom";
 
-import { signin, authenticate } from "../auth";
+import { signin, authenticate, isAuthenticated } from "../auth";
 
 import Layout from "../core/Layout";
 
 const Signin = () => {
   const [state, setState] = useState({
-    email: "dougiehawes@hotmail.com",
-    password: "rodin42",
+    email: "",
+    password: "",
     error: "",
     loading: false,
     redirect: false,
@@ -17,6 +17,8 @@ const Signin = () => {
   });
 
   const { email, password, error, loading, redirect, buttonText } = state;
+
+  const { user } = isAuthenticated();
 
   const handleChange = (name) => (e) => {
     setState({ ...state, error: "", [name]: e.target.value });
@@ -60,13 +62,17 @@ const Signin = () => {
   );
 
   const redirectUser = () => {
-    if (redirect) {
-      return <Redirect to="/" />;
+    if (redirect || isAuthenticated()) {
+      return (
+        <Redirect
+          to={user.role === 1 ? "/admin/dashboard" : "/user/dashboard"}
+        />
+      );
     }
   };
 
   const signinForm = () => (
-    <div className="children">
+    <div className="child">
       <form className="form">
         <div className="form-group">
           <label className="form-group-label">email</label>

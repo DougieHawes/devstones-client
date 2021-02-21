@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-import { signup } from "../auth";
+import { signup, isAuthenticated } from "../auth";
 
 import Layout from "../core/Layout";
 
@@ -67,8 +67,22 @@ const Signup = () => {
     </div>
   );
 
+  const redirectUser = () => {
+    if (isAuthenticated()) {
+      return (
+        <Redirect
+          to={
+            isAuthenticated().user.role === 1
+              ? "/admin/dashboard"
+              : "/user/dashboard"
+          }
+        />
+      );
+    }
+  };
+
   const signupForm = () => (
-    <div className="children">
+    <div className="child">
       <form className="form">
         <div className="form-group">
           <label className="form-group-label">name</label>
@@ -112,6 +126,7 @@ const Signup = () => {
       </form>
       {showError()}
       {showSuccess()}
+      {redirectUser()}
     </div>
   );
 
