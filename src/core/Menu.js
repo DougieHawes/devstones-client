@@ -1,8 +1,12 @@
+import { Fragment } from "react";
+
 import { Link, NavLink, withRouter } from "react-router-dom";
+
+import { signout, isAuthenticated } from "../auth";
 
 import "./style.min.css";
 
-const Menu = () => {
+const Menu = (history) => {
   return (
     <div className="menu">
       <div className="title-box">
@@ -11,12 +15,30 @@ const Menu = () => {
         </Link>
       </div>
       <div className="links-box">
-        <NavLink className="link" activeClassName="active-link" to="/signup">
-          SIGNUP
-        </NavLink>
-        <NavLink className="link" activeClassName="active-link" to="/signin">
-          SIGNIN
-        </NavLink>
+        {!isAuthenticated() && (
+          <Fragment>
+            <NavLink
+              className="link"
+              activeClassName="active-link"
+              to="/signup"
+            >
+              SIGNUP
+            </NavLink>
+            <NavLink
+              className="link"
+              activeClassName="active-link"
+              to="/signin"
+            >
+              SIGNIN
+            </NavLink>
+          </Fragment>
+        )}
+
+        {isAuthenticated() && (
+          <Link className="link" to="/">
+            <span onClick={() => signout()}>SIGNOUT</span>
+          </Link>
+        )}
       </div>
     </div>
   );
