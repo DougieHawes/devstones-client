@@ -4,6 +4,8 @@ import Layout from "./Layout";
 
 import { getProducts } from "./apiCore";
 
+import Search from "./Search";
+
 import { Card1 } from "../utils/cards";
 
 const Home = () => {
@@ -38,6 +40,7 @@ const Home = () => {
 
   const home = (
     <div className="child">
+      <Search />
       <h2>new arrivals</h2>
       <div className="card-box">
         {productsByArrival.map((product, id) => {

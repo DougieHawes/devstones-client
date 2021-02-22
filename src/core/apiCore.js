@@ -1,4 +1,5 @@
 import { API } from "../config";
+import queryString from "query-string";
 
 export const getFilteredProducts = (skip, limit, filters = {}) => {
   const data = {
@@ -34,6 +35,18 @@ export const getProducts = (sortBy) => {
 
 export const getCategories = () => {
   return fetch(`${API}/category/categories`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const list = (params) => {
+  const query = queryString.stringify(params);
+  console.log("query", query);
+  return fetch(`${API}/product/search?${query}`, {
     method: "GET",
   })
     .then((response) => {
