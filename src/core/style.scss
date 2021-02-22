@@ -24,6 +24,7 @@
   .layout-body {
     max-height: calc(100vh - 42px);
     min-height: calc(100vh - 42px);
+    overflow-x: hidden;
     overflow-y: scroll;
     .jumbotron {
       background-color: $colour2;

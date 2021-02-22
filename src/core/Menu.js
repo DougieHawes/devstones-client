@@ -17,6 +17,11 @@ const Menu = (history) => {
         </Link>
       </div>
       <div className="links-box">
+        <Fragment>
+          <NavLink className="link" activeClassName="active-link" to="/shop">
+            SHOP <i className="fas fa-store-alt"></i>
+          </NavLink>
+        </Fragment>
         {!isAuthenticated() && (
           <Fragment>
             <NavLink
@@ -28,7 +33,6 @@ const Menu = (history) => {
             </NavLink>
           </Fragment>
         )}
-
         {isAuthenticated() && (
           <Fragment>
             <NavLink
@@ -36,7 +40,7 @@ const Menu = (history) => {
               activeClassName="active-link"
               to={user.role === 1 ? "/admin/dashboard" : "/user/dashboard"}
             >
-              DASHBOARD
+              DASHBOARD <i className="fas fa-user-alt"></i>
             </NavLink>
             <Link className="link" to="/">
               <span onClick={() => signout()}>
