@@ -4,21 +4,33 @@ import { Redirect } from "react-router-dom";
 
 import { signin, authenticate, isAuthenticated } from "../auth";
 
+import "./style.min.css";
+
 import Layout from "../core/Layout";
+
+import { Button1 } from "../utils/buttons";
+import { Input1 } from "../utils/inputs";
 
 const Signin = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
     error: "",
+    showPassword: false,
     loading: false,
     redirect: false,
     buttonText: "SUBMIT",
   });
 
-  const { email, password, error, loading, redirect, buttonText } = state;
-
-  const { user } = isAuthenticated();
+  const {
+    email,
+    password,
+    error,
+    showPassword,
+    loading,
+    redirect,
+    buttonText,
+  } = state;
 
   const handleChange = (name) => (e) => {
     setState({ ...state, error: "", [name]: e.target.value });
@@ -65,7 +77,11 @@ const Signin = () => {
     if (redirect || isAuthenticated()) {
       return (
         <Redirect
-          to={user.role === 1 ? "/admin/dashboard" : "/user/dashboard"}
+          to={
+            isAuthenticated().user.role === 1
+              ? "/admin/dashboard"
+              : "/user/dashboard"
+          }
         />
       );
     }
@@ -74,27 +90,20 @@ const Signin = () => {
   const signinForm = () => (
     <div className="child">
       <form className="form">
-        <div className="form-group">
-          <label className="form-group-label">email</label>
-          <input
-            value={email}
-            onChange={handleChange("email")}
-            type="text"
-            className="input"
-          />
+        <Input1 label="email" value={email} onChange={handleChange("email")} />
+        <div
+          className="show-password-toggle"
+          onClick={() => setState({ ...state, showPassword: !showPassword })}
+        >
+          show-password
         </div>
-        <div className="form-group">
-          <label className="form-group-label">password</label>
-          <input
-            value={password}
-            onChange={handleChange("password")}
-            type="text"
-            className="input"
-          />
-        </div>
-        <button onClick={handleSubmit} className="button">
-          {buttonText}
-        </button>
+        <Input1
+          label="password"
+          type={!showPassword ? "password" : "text"}
+          value={password}
+          onChange={handleChange("password")}
+        />
+        <Button1 onClick={handleSubmit} buttonText={buttonText} />
       </form>
       {showError()}
       {showLoading()}

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { isAuthenticated } from "../auth";
 
+import "./style.min.css";
+
 import Layout from "../core/Layout";
 
 const AdminDashboard = () => {
@@ -11,13 +13,13 @@ const AdminDashboard = () => {
 
   const adminLinks = () => {
     return (
-      <div>
-        <h3>admin links</h3>
-        <ul>
-          <li>
+      <div className="dashboard-card">
+        <h3 className="dashboard-card-title">admin links</h3>
+        <ul className="dashboard-card-items">
+          <li className="dashboard-card-item">
             <Link to="/create/category">create category</Link>
           </li>
-          <li>
+          <li className="dashboard-card-item">
             <Link to="/create/product">create product</Link>
           </li>
         </ul>
@@ -27,22 +29,22 @@ const AdminDashboard = () => {
 
   const adminInfo = () => {
     return (
-      <div>
-        <h3>admin information</h3>
-        <ul>
-          <li>{name}</li>
-          <li>{email}</li>
-          <li>admin</li>
+      <div className="dashboard-card">
+        <h3 className="dashboard-card-title">admin information</h3>
+        <ul className="dashboard-card-items">
+          <li className="dashboard-card-item">{name}</li>
+          <li className="dashboard-card-item">{email}</li>
+          <li className="dashboard-card-item">admin</li>
         </ul>
       </div>
     );
   };
 
-  const dashboard = (
+  const dashboard = () => (
     <div className="child">
-      <div>
-        <div>{adminLinks()}</div>
-        <div>{adminInfo()}</div>
+      <div className="dashboard">
+        <div className="dashboard-column">{adminLinks()}</div>
+        <div className="dashboard-column">{adminInfo()}</div>
       </div>
     </div>
   );
@@ -51,7 +53,7 @@ const AdminDashboard = () => {
     <Layout
       title="dashboard"
       description={`welcome ${name}!`}
-      children={dashboard}
+      children={dashboard()}
     />
   );
 };

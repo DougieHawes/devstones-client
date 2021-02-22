@@ -1,0 +1,31 @@
+@import "../variables";
+
+.show-password-toggle {
+  color: $colour4;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: right;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  .dashboard-card {
+    background-color: $colour2;
+    border: 1px solid $colour4;
+    border-radius: 0 0 28px 28px;
+    margin: 0 2% 28px 2%;
+    .dashboard-card-title {
+      background-color: $colour3;
+      font-size: 28px;
+      padding: 6px 35px;
+    }
+    .dashboard-card-items {
+      padding: 21px 35px;
+      .dashboard-card-item {
+        margin: 6px 0;
+        padding: 12px 18px;
+      }
+    }
+  }
+}

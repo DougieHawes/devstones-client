@@ -4,7 +4,12 @@ import { Link, Redirect } from "react-router-dom";
 
 import { signup, isAuthenticated } from "../auth";
 
+import "./style.min.css";
+
 import Layout from "../core/Layout";
+
+import { Button1 } from "../utils/buttons";
+import { Input1 } from "../utils/inputs";
 
 const Signup = () => {
   const [state, setState] = useState({
@@ -14,6 +19,7 @@ const Signup = () => {
     confirmpassword: "",
     error: "",
     success: "",
+    showPassword: false,
     buttonText: "SUBMIT",
   });
 
@@ -24,6 +30,7 @@ const Signup = () => {
     confirmpassword,
     error,
     success,
+    showPassword,
     buttonText,
   } = state;
 
@@ -84,42 +91,26 @@ const Signup = () => {
   const signupForm = () => (
     <div className="child">
       <form className="form">
-        <div className="form-group">
-          <label className="form-group-label">name</label>
-          <input
-            value={name}
-            onChange={handleChange("name")}
-            type="text"
-            className="input"
-          />
+        <Input1 label="name" value={name} onChange={handleChange("name")} />
+        <Input1 label="email" value={email} onChange={handleChange("email")} />
+        <div
+          className="show-password-toggle"
+          onClick={() => setState({ ...state, showPassword: !showPassword })}
+        >
+          show-password
         </div>
-        <div className="form-group">
-          <label className="form-group-label">email</label>
-          <input
-            value={email}
-            onChange={handleChange("email")}
-            type="text"
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-group-label">password</label>
-          <input
-            value={password}
-            onChange={handleChange("password")}
-            type="text"
-            className="input"
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-group-label">confirm password</label>
-          <input
-            value={confirmpassword}
-            onChange={handleChange("confirmpassword")}
-            type="text"
-            className="input"
-          />
-        </div>
+        <Input1
+          label="password"
+          type={!showPassword ? "password" : "text"}
+          value={password}
+          onChange={handleChange("password")}
+        />
+        <Input1
+          label="confirm"
+          type={!showPassword ? "password" : "text"}
+          value={confirmpassword}
+          onChange={handleChange("confirmpassword")}
+        />
         <button onClick={handleSubmit} className="button">
           {buttonText}
         </button>

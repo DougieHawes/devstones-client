@@ -12,7 +12,7 @@ const Menu = (history) => {
   return (
     <div className="menu">
       <div className="title-box">
-        <Link className="link" to="/">
+        <Link to="/">
           <h1 className="title">DevStones</h1>
         </Link>
       </div>
@@ -22,16 +22,9 @@ const Menu = (history) => {
             <NavLink
               className="link"
               activeClassName="active-link"
-              to="/signup"
-            >
-              SIGNUP
-            </NavLink>
-            <NavLink
-              className="link"
-              activeClassName="active-link"
               to="/signin"
             >
-              SIGNIN
+              SIGNIN <i className="fas fa-sign-in-alt"></i>
             </NavLink>
           </Fragment>
         )}
@@ -46,7 +39,9 @@ const Menu = (history) => {
               DASHBOARD
             </NavLink>
             <Link className="link" to="/">
-              <span onClick={() => signout()}>SIGNOUT</span>
+              <span onClick={() => signout()}>
+                SIGNOUT <i className="fas fa-sign-out-alt"></i>
+              </span>
             </Link>
           </Fragment>
         )}

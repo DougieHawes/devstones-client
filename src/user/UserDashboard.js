@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { isAuthenticated } from "../auth";
 
+import "./style.min.css";
+
 import Layout from "../core/Layout";
 
 const UserDashboard = () => {
@@ -11,13 +13,13 @@ const UserDashboard = () => {
 
   const userLinks = () => {
     return (
-      <div>
-        <h3>user links</h3>
-        <ul>
-          <li>
+      <div className="dashboard-card">
+        <h3 className="dashboard-card-title">user links</h3>
+        <ul className="dashboard-card-items">
+          <li className="dashboard-card-item">
             <Link to="/cart">my cart</Link>
           </li>
-          <li>
+          <li className="dashboard-card-item">
             <Link to="/profile/update">update profile</Link>
           </li>
         </ul>
@@ -27,12 +29,12 @@ const UserDashboard = () => {
 
   const userInfo = () => {
     return (
-      <div>
-        <h3>user information</h3>
-        <ul>
-          <li>{name}</li>
-          <li>{email}</li>
-          <li>user</li>
+      <div className="dashboard-card">
+        <h3 className="dashboard-card-title">user information</h3>
+        <ul className="dashboard-card-items">
+          <li className="dashboard-card-item">{name}</li>
+          <li className="dashboard-card-item">{email}</li>
+          <li className="dashboard-card-item">user</li>
         </ul>
       </div>
     );
@@ -40,20 +42,20 @@ const UserDashboard = () => {
 
   const purchaseHistory = () => {
     return (
-      <div>
-        <h3>purchase history</h3>
-        <ul>
-          <li>history</li>
+      <div className="dashboard-card">
+        <h3 className="dashboard-card-title">purchase history</h3>
+        <ul className="dashboard-card-items">
+          <li className="dashboard-card-item">history</li>
         </ul>
       </div>
     );
   };
 
-  const dashboard = (
+  const dashboard = () => (
     <div className="child">
-      <div>
-        <div>{userLinks()}</div>
-        <div>
+      <div className="dashboard">
+        <div className="dashboard-column">{userLinks()}</div>
+        <div className="dashboard-column">
           {userInfo()}
           {purchaseHistory()}
         </div>
@@ -65,7 +67,7 @@ const UserDashboard = () => {
     <Layout
       title="dashboard"
       description={`welcome ${name}!`}
-      children={dashboard}
+      children={dashboard()}
     />
   );
 };

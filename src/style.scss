@@ -34,3 +34,40 @@ h6 {
 
 .app {
 }
+
+.child {
+  background-attachment: fixed;
+  background-blend-mode: screen;
+  background-color: rgba($color: $colour2, $alpha: 0.7);
+  background-image: url("./media/jumbotron1.jpg");
+  background-size: cover;
+}
+
+.form {
+  max-width: 700px;
+}
+
+.link {
+  font-size: 21px;
+}
+
+.alert {
+  color: $colour2;
+  margin-top: 90px;
+  max-width: 700px;
+  padding: 6px;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: $colour3;
+}
+
+.alert-failure {
+  background-color: $colour4;
+}
+
+.card-flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
