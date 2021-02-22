@@ -67,7 +67,7 @@ h6 {
   background-color: $colour4;
 }
 
-.card-flex-box {
-  display: flex;
-  flex-wrap: wrap;
+.card-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

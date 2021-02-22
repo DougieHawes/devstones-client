@@ -19,6 +19,7 @@ const Shop = () => {
   const [error, setError] = useState(false);
   const [limit, setLimit] = useState(6);
   const [skip, setSkip] = useState(0);
+  const [size, setSize] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
@@ -37,9 +38,35 @@ const Shop = () => {
         setError(data.error);
       } else {
         setFilteredResults(data.data);
+        setSize(data.size);
         setSkip(0);
       }
     });
+  };
+
+  const loadMore = () => {
+    let toSkip = skip + limit;
+
+    getFilteredProducts(toSkip, limit, myFilters.filters).then((data) => {
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setFilteredResults([...filteredResults, ...data.data]);
+        setSize(data.size);
+        setSkip(toSkip);
+      }
+    });
+  };
+
+  const loadMoreButton = () => {
+    return (
+      size > 0 &&
+      size >= limit && (
+        <button className="load-more-button" onClick={loadMore}>
+          load more
+        </button>
+      )
+    );
   };
 
   useEffect(() => {
@@ -77,31 +104,38 @@ const Shop = () => {
   };
 
   const shop = (
-    <div className="child">
-      <div>
-        <h4>filter by categories</h4>
-        <ul>
+    <div className="child shop">
+      <div className="shop-filter">
+        <h4 className="shop-filter-heading">filter by categories</h4>
+        <ul className="shop-filter-buttons">
           <CheckBox
             categories={categories}
             handleFilters={(filters) => handleFilters(filters, "category")}
           />
         </ul>
-        <h4>filter by price</h4>
-        <div>
+        <h4 className="shop-filter-heading">filter by price</h4>
+        <div className="shop-filter-buttons">
           <RadioBox
             prices={prices}
             handleFilters={(filters) => handleFilters(filters, "price")}
           />
         </div>
       </div>
-      <div>{JSON.stringify(filteredResults)}</div>
+      <div className="shop-items">
+        <div className="shop-cards">
+          {filteredResults.map((product, i) => (
+            <Card1 key={i} product={product} />
+          ))}
+        </div>
+        {loadMoreButton()}
+      </div>
     </div>
   );
 
   return (
     <Layout
-      title="devstones"
-      description="online bookstore for developers and programmers"
+      title="shop"
+      description="select books by category and price range"
       children={shop}
     />
   );

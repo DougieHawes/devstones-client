@@ -16,13 +16,13 @@ const CheckBox = ({ categories, handleFilters }) => {
   };
 
   return categories.map((c, i) => (
-    <li key={i}>
+    <li className="shop-filter-button" key={i}>
       <input
         onChange={handleToggle(c._id)}
         value={checked.indexOf(c._id === 1)}
         type="checkbox"
       />
-      <label>{c.name}</label>
+      <label> {c.name}</label>
     </li>
   ));
 };

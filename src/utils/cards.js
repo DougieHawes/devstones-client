@@ -11,7 +11,9 @@ export const Card1 = ({ product }) => (
       <ShowImage item={product} url="product" />
     </div>
     <div className="card-details">
-      <p className="card-details-description">{product.description}</p>
+      <p className="card-details-description">
+        {product.description.substring(0, 140)}
+      </p>
       <div className="card-details-purchase">
         <p className="card-price">£ {product.price}</p>
         <Link to="/product">

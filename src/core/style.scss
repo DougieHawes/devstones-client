@@ -48,3 +48,42 @@
     }
   }
 }
+
+.shop {
+  display: grid;
+  grid-template-columns: 280px auto;
+  .shop-filter {
+    background-color: $colour2;
+    border: 1px solid $colour4;
+    margin: 12px;
+    padding: $menu-padding;
+    .shop-filter-heading {
+      color: $colour3;
+      font-size: 21px;
+      margin: 6px 4%;
+    }
+    .shop-filter-buttons {
+      padding: 12px 12%;
+      .shop-filter-button {
+        font-size: 18px;
+        padding: 3px 0;
+      }
+    }
+  }
+  .shop-items {
+    .shop-cards {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .load-more-button {
+      background-color: $colour3;
+      border: 2px solid $colour4;
+      cursor: pointer;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      width: 210px;
+    }
+  }
+}

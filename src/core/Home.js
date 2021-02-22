@@ -39,13 +39,13 @@ const Home = () => {
   const home = (
     <div className="child">
       <h2>new arrivals</h2>
-      <div className="card-flex-box">
+      <div className="card-box">
         {productsByArrival.map((product, id) => {
           return <Card1 key={id} product={product} />;
         })}
       </div>
       <h2>new arrivals</h2>
-      <div className="card-flex-box">
+      <div className="card-box">
         {productsBySell.map((product, id) => {
           return <Card1 key={id} product={product} />;
         })}

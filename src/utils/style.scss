@@ -16,7 +16,7 @@
 .card {
   background-color: $colour2;
   border: 1px solid $colour4;
-  margin: 12px auto;
+  margin: 12px 8px;
   padding: $card-padding;
 }
 .card1 {
@@ -36,8 +36,6 @@
   }
   .card-details {
     .card-details-description {
-      max-height: 180px;
-      overflow: hidden;
     }
     .card-details-purchase {
       padding: $card-padding;
