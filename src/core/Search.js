@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 
 import { getCategories, list } from "./apiCore";
 
+import { Button2 } from "../utils/buttons";
 import { Card1 } from "../utils/cards";
+import { Input5, Input6 } from "../utils/inputs";
 
 const Search = () => {
   const [data, setData] = useState({
@@ -76,24 +78,23 @@ const Search = () => {
   );
 
   const searchForm = () => (
-    <form onSubmit={searchSubmit}>
-      <select onChange={handleChange("category")}>
-        <option value="all">pick category</option>
-        {categories.map((c, i) => (
-          <option key={i} value={c._id}>
-            {c.name}
-          </option>
-        ))}
-      </select>
-      <input type="search" onChange={handleChange("search")} />
-      <button>search</button>
+    <form className="search-form" onSubmit={searchSubmit}>
+      {categories && (
+        <Input6
+          value={category}
+          options={categories}
+          onChange={handleChange("category")}
+        />
+      )}
+      <Input5 type="search" onChange={handleChange("search")} />
+      <Button2 buttonText="search" />
     </form>
   );
 
   return (
-    <div>
-      <div>{searchForm()}</div>
-      <div>{searchedProducts(results)}</div>
+    <div className="search">
+      {searchForm()}
+      <div className="search-products">{searchedProducts(results)}</div>
     </div>
   );
 };

@@ -67,3 +67,26 @@ export const Input4 = ({ label, required = true, onChange }) => (
     />
   </div>
 );
+
+export const Input5 = ({ type = "text", value, required = true, onChange }) => (
+  <input
+    className="input input5"
+    type={type}
+    value={value}
+    required={required}
+    onChange={onChange}
+  />
+);
+
+export const Input6 = ({ required = true, options, onChange }) => (
+  <select className="input input6" required={required} onChange={onChange}>
+    <option>please select</option>
+    <>
+      {options.map((option) => (
+        <option key={option._id} value={option._id}>
+          {option.name}
+        </option>
+      ))}
+    </>
+  </select>
+);

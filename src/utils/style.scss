@@ -4,12 +4,14 @@
   background-color: $colour3;
   border: 2px solid $colour4;
   cursor: pointer;
-  float: right;
   font-size: 18px;
   font-weight: bold;
   height: $form-item-height;
-  margin-top: $form-item-height;
   text-align: center;
+}
+.button1 {
+  float: right;
+  margin-top: $form-item-height;
   width: 140px;
 }
 
@@ -18,9 +20,6 @@
   border: 1px solid $colour4;
   margin: 12px 8px;
   padding: $card-padding;
-}
-.card1 {
-  width: 280px;
   .card-title {
     color: $colour3;
     font-size: 28px;
@@ -29,20 +28,29 @@
     overflow: hidden;
     text-align: left;
   }
+  .card-details-purchase {
+    padding: $card-padding;
+    * {
+      text-align: right;
+    }
+  }
+}
+.card1 {
+  width: 280px;
   .card-image {
     height: 320px;
     max-height: 320px;
     overflow: hidden;
   }
   .card-details {
-    .card-details-description {
-    }
-    .card-details-purchase {
-      padding: $card-padding;
-      * {
-        text-align: right;
-      }
-    }
+  }
+}
+.card2 {
+  display: grid;
+  grid-template-columns: 350px auto;
+  padding: 28px 2%;
+  .card-details {
+    padding: $card-padding;
   }
 }
 
@@ -69,6 +77,12 @@
   .input2 {
     height: 280px;
   }
+}
+.input5,
+.input6 {
+  border: 2px solid $colour3;
+  height: $form-item-height;
+  margin-right: 6px;
 }
 
 .return-link {

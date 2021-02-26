@@ -49,6 +49,17 @@
   }
 }
 
+.search {
+  margin-bottom: 21px;
+  .search-form {
+    display: grid;
+    grid-template-columns: 280px auto 140px;
+  }
+  .search-products {
+    margin-bottom: 21px;
+  }
+}
+
 .shop {
   display: grid;
   grid-template-columns: 280px auto;
