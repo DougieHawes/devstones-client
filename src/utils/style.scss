@@ -4,7 +4,7 @@
   background-color: $colour3;
   border: 2px solid $colour4;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: bold;
   height: $form-item-height;
   text-align: center;
@@ -12,7 +12,6 @@
 .button1 {
   float: right;
   margin-top: $form-item-height;
-  width: 140px;
 }
 
 .card {
@@ -23,9 +22,6 @@
   .card-title {
     color: $colour3;
     font-size: 28px;
-    min-height: 80px;
-    max-height: 80px;
-    overflow: hidden;
     text-align: left;
   }
   .card-details-purchase {
@@ -37,6 +33,11 @@
 }
 .card1 {
   width: 280px;
+  .card-title {
+    min-height: 80px;
+    max-height: 80px;
+    overflow: hidden;
+  }
   .card-image {
     height: 320px;
     max-height: 320px;
@@ -49,8 +50,28 @@
   display: grid;
   grid-template-columns: 350px auto;
   padding: 28px 2%;
+  .card-title {
+    min-height: 80px;
+    max-height: 80px;
+    overflow: hidden;
+  }
   .card-details {
     padding: $card-padding;
+  }
+}
+.card3 {
+  .card-details {
+    display: grid;
+    grid-template-columns: 60px auto 100px;
+    .card-details-description {
+      padding: $card-padding;
+    }
+    .card-details-purchase {
+      .qty-adjust {
+        display: grid;
+        grid-template-columns: auto 60px;
+      }
+    }
   }
 }
 
@@ -58,7 +79,7 @@
   display: grid;
   grid-template-columns: 210px auto;
   .label {
-    font-size: 21px;
+    font-size: 28px;
     font-weight: bold;
     padding-right: 7px;
     text-align: right;
@@ -66,17 +87,17 @@
   .label:after {
     content: " :";
   }
-  .input {
-    font-size: 21px;
-    margin-bottom: 7px;
-    padding-left: 7px;
-  }
-  .input1 {
-    height: $form-item-height;
-  }
-  .input2 {
-    height: 280px;
-  }
+}
+.input {
+  font-size: 28px;
+  margin-bottom: 7px;
+  padding-left: 7px;
+}
+.input1 {
+  height: $form-item-height;
+}
+.input2 {
+  height: 280px;
 }
 .input5,
 .input6 {

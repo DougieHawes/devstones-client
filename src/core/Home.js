@@ -17,6 +17,7 @@ const Home = () => {
     getProducts("sold").then((data) => {
       if (data.error) {
         setError(data.error);
+        console.log(error);
       } else {
         setProductsBySell(data);
       }
@@ -42,16 +43,20 @@ const Home = () => {
     <div className="child">
       <Search />
       <h2>new arrivals</h2>
-      <div className="card-box">
-        {productsByArrival.map((product, id) => {
-          return <Card1 key={id} product={product} />;
-        })}
+      <div className="card-box-container">
+        <div className="card-box">
+          {productsByArrival.map((product, id) => {
+            return <Card1 key={id} product={product} />;
+          })}
+        </div>
       </div>
       <h2>new arrivals</h2>
-      <div className="card-box">
-        {productsBySell.map((product, id) => {
-          return <Card1 key={id} product={product} />;
-        })}
+      <div className="card-box-container">
+        <div className="card-box">
+          {productsBySell.map((product, id) => {
+            return <Card1 key={id} product={product} />;
+          })}
+        </div>
       </div>
     </div>
   );

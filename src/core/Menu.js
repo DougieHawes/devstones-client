@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 
 import { signout, isAuthenticated } from "../auth";
+import { itemTotal } from "./cartHelpers";
 
 import "./style.min.css";
 
@@ -41,6 +42,12 @@ const Menu = (history) => {
               to={user.role === 1 ? "/admin/dashboard" : "/user/dashboard"}
             >
               DASHBOARD <i className="fas fa-user-alt"></i>
+            </NavLink>
+            <NavLink className="link" activeClassName="active-link" to="/cart">
+              CART <i className="fas fa-shopping-cart"></i>
+              <span className="item-total">
+                {itemTotal() > 0 && itemTotal()}
+              </span>
             </NavLink>
             <Link className="link" to="/">
               <span onClick={() => signout()}>

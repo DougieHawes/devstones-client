@@ -111,9 +111,7 @@ const Signup = () => {
           value={confirmpassword}
           onChange={handleChange("confirmpassword")}
         />
-        <button onClick={handleSubmit} className="button">
-          {buttonText}
-        </button>
+        <Button1 onClick={handleSubmit} buttonText={buttonText} />
       </form>
       {showError()}
       {showSuccess()}

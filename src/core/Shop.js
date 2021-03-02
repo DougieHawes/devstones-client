@@ -26,6 +26,7 @@ const Shop = () => {
     getCategories().then((data) => {
       if (data.error) {
         setError(data.error);
+        console.log(error);
       } else {
         setCategories(data);
       }
@@ -122,10 +123,12 @@ const Shop = () => {
         </div>
       </div>
       <div className="shop-items">
-        <div className="shop-cards">
-          {filteredResults.map((product, i) => (
-            <Card1 key={i} product={product} />
-          ))}
+        <div className="card-box-container">
+          <div className="card-box">
+            {filteredResults.map((product, i) => (
+              <Card1 key={i} product={product} />
+            ))}
+          </div>
         </div>
         {loadMoreButton()}
       </div>

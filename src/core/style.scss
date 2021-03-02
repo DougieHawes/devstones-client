@@ -14,6 +14,12 @@
       text-align: right;
       .link {
         margin-left: 12px;
+        i {
+          color: $colour2;
+        }
+        .item-total {
+          font-weight: bold;
+        }
       }
       .active-link {
         color: $colour4;
@@ -82,10 +88,6 @@
     }
   }
   .shop-items {
-    .shop-cards {
-      display: flex;
-      flex-wrap: wrap;
-    }
     .load-more-button {
       background-color: $colour3;
       border: 2px solid $colour4;

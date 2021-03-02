@@ -7,6 +7,7 @@ import PrivateRoute from "./auth/PrivateRoute";
 
 import Home from "./core/Home";
 import Shop from "./core/Shop";
+import Cart from "./core/Cart";
 import Product from "./core/Product";
 
 import Signup from "./user/Signup";
@@ -26,6 +27,7 @@ const Routes = () => {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/shop" component={Shop} />
+        <Route exact path="/cart" component={Cart} />
         <Route exact path="/product/:productId" component={Product} />
         <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
